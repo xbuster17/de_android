@@ -1,6 +1,18 @@
+reqs:
+android-ndk and android-sdk on your PATH variable
+
+android sdk platform API16 set as minimum, API26 set as target to comply with new market policy
+
+run make droid from dream engine root folder
+
+-------------------------------------------------------------------------------
+
+folder description todo:
 android/obj holds compiled jni code. this takes a while to recompile sdl
 android/libs holds compiled jni linked
 android/bin holds packed result and ...
+
+android/res holds strings for app name, and images for icon in various resolutions
 
 -------------------------------------------------------------------------------
 
