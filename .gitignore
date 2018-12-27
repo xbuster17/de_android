@@ -1,0 +1,20 @@
+bin/
+obj/
+libs/
+gen/
+
+# symbolic link
+assets
+
+# generated
+jni/src/Android.mk
+
+# SDL2 libraries sources
+# these should be a git submodule or something...
+# jni/SDL2
+# jni/SDL2_image
+# jni/SDL2_mixer
+# jni/SDL2_net
+# jni/SDL2_ttf
+
+

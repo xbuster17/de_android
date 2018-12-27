@@ -1,0 +1,49 @@
+android/obj holds compiled jni code. this takes a while to recompile sdl
+android/libs holds compiled jni linked
+android/bin holds packed result and ...
+
+-------------------------------------------------------------------------------
+
+todo a script to automate project renaming
+how to rename project:
+/makefile EXEC
+/android/AndroidManifest.xml: activity name and manifest (2 places)
+/android/build.xml: project name
+/android/src/org/xb17/de/de.java: package, file names, path
+
+
+-------------------------------------------------------------------------------
+
+how to add a library <lib>:
+	create dir with source:
+		/android/jni/<lib>
+
+	edit /makefile:
+		in droid makefile, prefix:
+			add path to /android/jni/<lib>/<lib>.h folder:
+				<LIB_PATH> := ../<lib>\n\
+			add path to LOCAL_C_INCLUDES:
+				$$(LOCAL_PATH)/$$(<LIB_PATH>)
+		in droid makefile, suffix:
+			add to LOCAL_SHARED_LIBRARIES:
+				<lib>
+
+	add to src:
+		add special rule #if ANDROID to include propper header, see /src/de/libs.h for example
+
+	aditional per library considerations for compiling may be requiered
+
+-------------------------------------------------------------------------------
+
+from SDL2, for android/src/org/gamemaker/game/game.java:
+Here's an example of a minimal class file:
+--- game.java --------------------------
+package com.gamemaker.game;
+
+import org.libsdl.app.SDLActivity;
+
+/*
+ * A sample wrapper class that just calls SDLActivity
+ */
+
+public class MyGame extends SDLActivity { }
